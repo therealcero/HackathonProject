@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Listing and Chat</title>
+    <link rel="stylesheet" href="{% static 'css/community.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+</head>
+<body>
+    <header>
+        <h1>My Groups</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="group-list">
+                <h2>My Groups</h2>
+                <ul>
+                    <!-- Display user's groups here -->
+                    {% for group in user_groups %}
+                    <li data-group="{{ group }}">{{ group }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="chat">
+                <h2 id="Group-chat">Group Chat (none)</h2>
+                <div class="chat-container">
+                    <!-- Display chat messages here -->
+                </div>
+                <div class="message-input">
+                    {% csrf_token %}
+                    <input type="text" id="textmessage" placeholder="Type your message...">
+                    <button id="sendButton" onclick="sendMessage()">Send</button>
+                </div>                
+            </div>
+        </div>
+    </main>
+</body>
+</html>

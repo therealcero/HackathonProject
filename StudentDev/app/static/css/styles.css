@@ -1,0 +1,305 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    position: relative; /* Added to contain the overlay */
+}
+
+
+
+header {
+    background: rgba(46, 139, 87, 0.9); /* Slight transparency for better readability */
+    padding: 20px 0;
+    animation: fadeInDown 1s;
+    position: fixed; /* Fix the header */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 55px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px; /* Added padding for better hover effect */
+    border-radius: 5px; /* Added border-radius for smooth effect */
+    transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    height: 1000px; /* Subtract the header height from viewport height */
+    /* overflow-y: auto;  */
+}
+
+#searchForm{
+    width: 100%; /* Take full width */
+    background: rgba(224, 224, 224, 0.8); /* Slight transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 1s;
+    position: fixed; /* Position the search bar container */
+    top: 80px; /* Adjust top position based on the height of the navigation bar */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+.search-bar-container {
+    width: 100%; /* Take full width */
+    background: rgba(224, 224, 224, 0.0); /* Slight transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: fixed; /* Position the search bar container */
+    top: 80px; /* Adjust top position based on the height of the navigation bar */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+
+#searchButton {
+    font-size: 20px;
+}
+
+.search-bar-container input {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar-container button {
+    padding: 10px;
+    background: #2e8b57;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-results {
+    display: none;
+    width: 80%;
+    margin-top: 20px;
+    padding-top: 100px;
+    padding-bottom: 90px;
+}
+
+.result-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: fadeInUp 1s;
+}
+
+.result-section h2 {
+    color: #2e8b57;
+}
+
+.result-section img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 5px 0;
+    background: rgba(46, 139, 87, 0.9); /* Slight transparency */
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Chatbot Styles */
+.chatbot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #DDFFBB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    z-index: 2;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-icon img {
+    width: 35px;
+    height: 35px;
+}
+
+.chatbot-popup {
+    position: fixed;
+    bottom: 60px;
+    right: 85px;
+    width: 400px;
+    height: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.5s;
+    z-index: 2;
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #2e8b57;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chatbot-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+/* Chatbot Styles */
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    background: #f3f4f6;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    height: 420;
+    max-height: 420px; /* Adjust this value as needed */
+}
+
+.user-message {
+    align-self: flex-end; /* Align user messages to the right */
+    text-align: right;
+    background-color: #2e8b57;
+    color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.bot-reply {
+    align-self: flex-start; /* Align bot messages to the left */
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+
+.chat-input-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#chatInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#sendMessage {
+    padding: 10px;
+    background: #2e8b57;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    min-width: 80px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+nav ul li img {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+    filter: brightness(0) invert(1); /* Change the color to white */
+}
+
+/* Homepage Styles */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin for the last item */
+}
+
+nav ul li img {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
